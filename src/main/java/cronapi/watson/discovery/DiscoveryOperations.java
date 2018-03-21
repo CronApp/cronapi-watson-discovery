@@ -1,9 +1,63 @@
 package cronapi.watson.discovery;
 
 import com.ibm.watson.developer_cloud.discovery.v1.Discovery;
-import com.ibm.watson.developer_cloud.discovery.v1.model.*;
+import com.ibm.watson.developer_cloud.discovery.v1.model.AddDocumentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.AddTrainingDataOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.Collection;
+import com.ibm.watson.developer_cloud.discovery.v1.model.Configuration;
+import com.ibm.watson.developer_cloud.discovery.v1.model.CreateCollectionOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.CreateConfigurationOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.CreateEnvironmentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.CreateTrainingExampleOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteAllTrainingDataOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteCollectionOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteConfigurationOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteDocumentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteEnvironmentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteTrainingDataOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DeleteTrainingExampleOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DocumentAccepted;
+import com.ibm.watson.developer_cloud.discovery.v1.model.DocumentStatus;
+import com.ibm.watson.developer_cloud.discovery.v1.model.Environment;
+import com.ibm.watson.developer_cloud.discovery.v1.model.FederatedQueryNoticesOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.FederatedQueryOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetCollectionOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetConfigurationOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetDocumentStatusOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetEnvironmentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetTrainingDataOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.GetTrainingExampleOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListCollectionFieldsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListCollectionFieldsResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListCollectionsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListCollectionsResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListConfigurationsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListConfigurationsResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListEnvironmentsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListEnvironmentsResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListFieldsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListTrainingDataOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.ListTrainingExamplesOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryEntitiesOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryEntitiesResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryNoticesOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryNoticesResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryRelationsOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryRelationsResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.QueryResponse;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TestConfigurationInEnvironmentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TestDocument;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TrainingDataSet;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TrainingExample;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TrainingExampleList;
+import com.ibm.watson.developer_cloud.discovery.v1.model.TrainingQuery;
+import com.ibm.watson.developer_cloud.discovery.v1.model.UpdateCollectionOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.UpdateConfigurationOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.UpdateDocumentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.UpdateEnvironmentOptions;
+import com.ibm.watson.developer_cloud.discovery.v1.model.UpdateTrainingExampleOptions;
 import cronapi.CronapiMetaData;
-
 import java.util.Map;
 
 @CronapiMetaData(categoryName = "Watson Discovery", categoryTags = {"Watson", "Discovery"})
@@ -13,8 +67,9 @@ public final class DiscoveryOperations {
       name = "{{createEnvironmentName}}",
       description = "{{createEnvironmentDescription}}"
   )
-  public static Environment createEnvironment(String versionDate, String username, String password, String endPoint,
-                                              Map<String, String> headers, CreateEnvironmentOptions options) {
+  public static Environment createEnvironment(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, CreateEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -27,8 +82,9 @@ public final class DiscoveryOperations {
       name = "{{deleteEnvironmentName}}",
       description = "{{deleteEnvironmentDescription}}"
   )
-  public static void deleteEnvironment(String versionDate, String username, String password, String endPoint,
-                                       Map<String, String> headers, DeleteEnvironmentOptions options) {
+  public static void deleteEnvironment(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, DeleteEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -41,8 +97,9 @@ public final class DiscoveryOperations {
       name = "{{getEnvironmentName}}",
       description = "{{getEnvironmentDescription}}"
   )
-  public static Environment getEnvironment(String versionDate, String username, String password, String endPoint,
-                                           Map<String, String> headers, GetEnvironmentOptions options) {
+  public static Environment getEnvironment(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, GetEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -55,9 +112,10 @@ public final class DiscoveryOperations {
       name = "{{listEnvironmentsName}}",
       description = "{{listEnvironmentsDescription}}"
   )
-  public static ListEnvironmentsResponse listEnvironments(String versionDate, String username, String password,
-                                                          String endPoint, Map<String, String> headers,
-                                                          ListEnvironmentsOptions options) {
+  public static ListEnvironmentsResponse listEnvironments(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListEnvironmentsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -70,9 +128,10 @@ public final class DiscoveryOperations {
       name = "{{listFieldsName}}",
       description = "{{listFieldsDescription}}"
   )
-  public static ListCollectionFieldsResponse listFields(String versionDate, String username, String password,
-                                                        String endPoint, Map<String, String> headers,
-                                                        ListFieldsOptions options) {
+  public static ListCollectionFieldsResponse listFields(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListFieldsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -86,8 +145,8 @@ public final class DiscoveryOperations {
       description = "{{updateEnvironmentDescription}}"
   )
   public static Environment updateEnvironment(String versionDate, String username, String password,
-                                              String endPoint, Map<String, String> headers,
-                                              UpdateEnvironmentOptions options) {
+      String endPoint, Map<String, String> headers,
+      UpdateEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -100,9 +159,10 @@ public final class DiscoveryOperations {
       name = "{{createConfigurationName}}",
       description = "{{createConfigurationDescription}}"
   )
-  public static Configuration createConfiguration(String versionDate, String username, String password,
-                                                  String endPoint, Map<String, String> headers,
-                                                  CreateConfigurationOptions options) {
+  public static Configuration createConfiguration(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      CreateConfigurationOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -116,7 +176,7 @@ public final class DiscoveryOperations {
       description = "{{deleteConfigurationDescription}}"
   )
   public static Void deleteConfiguration(String versionDate, String username, String password,
-                                         String endPoint, Map<String, String> headers, DeleteConfigurationOptions options) {
+      String endPoint, Map<String, String> headers, DeleteConfigurationOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -130,8 +190,8 @@ public final class DiscoveryOperations {
       description = "{{getConfigurationDescription}}"
   )
   public static Configuration getConfiguration(String versionDate, String username, String password,
-                                               String endPoint, Map<String, String> headers,
-                                               GetConfigurationOptions options) {
+      String endPoint, Map<String, String> headers,
+      GetConfigurationOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -144,9 +204,10 @@ public final class DiscoveryOperations {
       name = "{{listConfigurationsName}}",
       description = "{{listConfigurationsDescription}}"
   )
-  public static ListConfigurationsResponse listConfigurations(String versionDate, String username, String password,
-                                                              String endPoint, Map<String, String> headers,
-                                                              ListConfigurationsOptions options) {
+  public static ListConfigurationsResponse listConfigurations(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListConfigurationsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -159,9 +220,10 @@ public final class DiscoveryOperations {
       name = "{{updateConfigurationName}}",
       description = "{{updateConfigurationDescription}}"
   )
-  public static Configuration updateConfiguration(String versionDate, String username, String password,
-                                                  String endPoint, Map<String, String> headers,
-                                                  UpdateConfigurationOptions options) {
+  public static Configuration updateConfiguration(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      UpdateConfigurationOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -174,9 +236,10 @@ public final class DiscoveryOperations {
       name = "{{testConfigurationInEnvironmentName}}",
       description = "{{testConfigurationInEnvironmentDescription}}"
   )
-  public static TestDocument testConfigurationInEnvironment(String versionDate, String username, String password,
-                                                            String endPoint, Map<String, String> headers,
-                                                            TestConfigurationInEnvironmentOptions options) {
+  public static TestDocument testConfigurationInEnvironment(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      TestConfigurationInEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -190,8 +253,8 @@ public final class DiscoveryOperations {
       description = "{{createCollectionDescription}}"
   )
   public static Collection createCollection(String versionDate, String username, String password,
-                                            String endPoint, Map<String, String> headers,
-                                            CreateCollectionOptions options) {
+      String endPoint, Map<String, String> headers,
+      CreateCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -205,7 +268,7 @@ public final class DiscoveryOperations {
       description = "{{deleteCollectionDescription}}"
   )
   public static Void deleteCollection(String versionDate, String username, String password,
-                                      String endPoint, Map<String, String> headers, DeleteCollectionOptions options) {
+      String endPoint, Map<String, String> headers, DeleteCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -219,7 +282,7 @@ public final class DiscoveryOperations {
       description = "{{getCollectionDescription}}"
   )
   public static Collection getCollection(String versionDate, String username, String password,
-                                         String endPoint, Map<String, String> headers, GetCollectionOptions options) {
+      String endPoint, Map<String, String> headers, GetCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -232,9 +295,10 @@ public final class DiscoveryOperations {
       name = "{{listCollectionFieldsName}}",
       description = "{{listCollectionFieldsDescription}}"
   )
-  public static ListCollectionFieldsResponse listCollectionFields(String versionDate, String username, String password,
-                                                                  String endPoint, Map<String, String> headers,
-                                                                  ListCollectionFieldsOptions options) {
+  public static ListCollectionFieldsResponse listCollectionFields(String versionDate,
+      String username, String password,
+      String endPoint, Map<String, String> headers,
+      ListCollectionFieldsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -247,9 +311,10 @@ public final class DiscoveryOperations {
       name = "{{listCollectionsFieldsName}}",
       description = "{{listCollectionsFieldsDescription}}"
   )
-  public static ListCollectionsResponse listCollections(String versionDate, String username, String password,
-                                                        String endPoint, Map<String, String> headers,
-                                                        ListCollectionsOptions options) {
+  public static ListCollectionsResponse listCollections(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListCollectionsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -263,8 +328,8 @@ public final class DiscoveryOperations {
       description = "{{updateCollectionDescription}}"
   )
   public static Collection updateCollection(String versionDate, String username, String password,
-                                            String endPoint, Map<String, String> headers,
-                                            UpdateCollectionOptions options) {
+      String endPoint, Map<String, String> headers,
+      UpdateCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -277,8 +342,9 @@ public final class DiscoveryOperations {
       name = "{{addDocumentName}}",
       description = "{{addDocumentDescription}}"
   )
-  public static DocumentAccepted addDocument(String versionDate, String username, String password, String endPoint,
-                                             Map<String, String> headers, AddDocumentOptions options) {
+  public static DocumentAccepted addDocument(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, AddDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -291,8 +357,9 @@ public final class DiscoveryOperations {
       name = "{{deleteDocumentName}}",
       description = "{{deleteDocumentDescription}}"
   )
-  public static Void deleteDocument(String versionDate, String username, String password, String endPoint,
-                                    Map<String, String> headers, DeleteDocumentOptions options) {
+  public static Void deleteDocument(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, DeleteDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -305,8 +372,9 @@ public final class DiscoveryOperations {
       name = "{{getDocumentStatusName}}",
       description = "{{getDocumentStatusDescription}}"
   )
-  public static DocumentStatus getDocumentStatus(String versionDate, String username, String password, String endPoint,
-                                                 Map<String, String> headers, GetDocumentStatusOptions options) {
+  public static DocumentStatus getDocumentStatus(String versionDate, String username,
+      String password, String endPoint,
+      Map<String, String> headers, GetDocumentStatusOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -319,8 +387,9 @@ public final class DiscoveryOperations {
       name = "{{updateDocumentName}}",
       description = "{{updateDocumentDescription}}"
   )
-  public static DocumentAccepted updateDocument(String versionDate, String username, String password, String endPoint,
-                                                Map<String, String> headers, UpdateDocumentOptions options) {
+  public static DocumentAccepted updateDocument(String versionDate, String username,
+      String password, String endPoint,
+      Map<String, String> headers, UpdateDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -333,8 +402,9 @@ public final class DiscoveryOperations {
       name = "{{federatedQueryName}}",
       description = "{{federatedQueryDescription}}"
   )
-  public static QueryResponse federatedQuery(String versionDate, String username, String password, String endPoint,
-                                             Map<String, String> headers, FederatedQueryOptions options) {
+  public static QueryResponse federatedQuery(String versionDate, String username, String password,
+      String endPoint,
+      Map<String, String> headers, FederatedQueryOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -346,9 +416,10 @@ public final class DiscoveryOperations {
       name = "{{federatedQueryNoticesName}}",
       description = "{{federatedQueryNoticesDescription}}"
   )
-  public static QueryNoticesResponse federatedQueryNotices(String versionDate, String username, String password,
-                                                           String endPoint, Map<String, String> headers,
-                                                           FederatedQueryNoticesOptions options) {
+  public static QueryNoticesResponse federatedQueryNotices(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      FederatedQueryNoticesOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -362,7 +433,7 @@ public final class DiscoveryOperations {
       description = "{{queryDescription}}"
   )
   public static QueryResponse query(String versionDate, String username, String password,
-                                    String endPoint, Map<String, String> headers, QueryOptions options) {
+      String endPoint, Map<String, String> headers, QueryOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -375,9 +446,10 @@ public final class DiscoveryOperations {
       name = "{{queryEntitiesName}}",
       description = "{{queryEntitiesDescription}}"
   )
-  public static QueryEntitiesResponse queryEntities(String versionDate, String username, String password,
-                                                    String endPoint, Map<String, String> headers,
-                                                    QueryEntitiesOptions options) {
+  public static QueryEntitiesResponse queryEntities(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      QueryEntitiesOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -390,9 +462,10 @@ public final class DiscoveryOperations {
       name = "{{queryNoticesName}}",
       description = "{{queryNoticesDescription}}"
   )
-  public static QueryNoticesResponse queryNotices(String versionDate, String username, String password,
-                                                  String endPoint, Map<String, String> headers,
-                                                  QueryNoticesOptions options) {
+  public static QueryNoticesResponse queryNotices(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      QueryNoticesOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -405,9 +478,10 @@ public final class DiscoveryOperations {
       name = "{{queryRelationsName}}",
       description = "{{queryRelationsDescription}}"
   )
-  public static QueryRelationsResponse queryRelations(String versionDate, String username, String password,
-                                                      String endPoint, Map<String, String> headers,
-                                                      QueryRelationsOptions options) {
+  public static QueryRelationsResponse queryRelations(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      QueryRelationsOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -421,8 +495,8 @@ public final class DiscoveryOperations {
       description = "{{addTrainingDataDescription}}"
   )
   public static TrainingQuery addTrainingData(String versionDate, String username, String password,
-                                              String endPoint, Map<String, String> headers,
-                                              AddTrainingDataOptions options) {
+      String endPoint, Map<String, String> headers,
+      AddTrainingDataOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -435,9 +509,10 @@ public final class DiscoveryOperations {
       name = "{{createTrainingExampleName}}",
       description = "{{createTrainingExampleDescription}}"
   )
-  public static TrainingExample createTrainingExample(String versionDate, String username, String password,
-                                                      String endPoint, Map<String, String> headers,
-                                                      CreateTrainingExampleOptions options) {
+  public static TrainingExample createTrainingExample(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      CreateTrainingExampleOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -451,8 +526,8 @@ public final class DiscoveryOperations {
       description = "{{deleteAllTrainingDataDescription}}"
   )
   public static Void deleteAllTrainingData(String versionDate, String username, String password,
-                                           String endPoint, Map<String, String> headers,
-                                           DeleteAllTrainingDataOptions options) {
+      String endPoint, Map<String, String> headers,
+      DeleteAllTrainingDataOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -466,8 +541,8 @@ public final class DiscoveryOperations {
       description = "{{deleteTrainingDataDescription}}"
   )
   public static Void deleteTrainingData(String versionDate, String username, String password,
-                                        String endPoint, Map<String, String> headers,
-                                        DeleteTrainingDataOptions options) {
+      String endPoint, Map<String, String> headers,
+      DeleteTrainingDataOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -481,8 +556,8 @@ public final class DiscoveryOperations {
       description = "{{deleteTrainingExampleDescription}}"
   )
   public static Void deleteTrainingExample(String versionDate, String username, String password,
-                                           String endPoint, Map<String, String> headers,
-                                           DeleteTrainingExampleOptions options) {
+      String endPoint, Map<String, String> headers,
+      DeleteTrainingExampleOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -496,8 +571,8 @@ public final class DiscoveryOperations {
       description = "{{getTrainingDataDescription}}"
   )
   public static TrainingQuery getTrainingData(String versionDate, String username, String password,
-                                              String endPoint, Map<String, String> headers,
-                                              GetTrainingDataOptions options) {
+      String endPoint, Map<String, String> headers,
+      GetTrainingDataOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -510,9 +585,10 @@ public final class DiscoveryOperations {
       name = "{{getTrainingExampleName}}",
       description = "{{getTrainingExampleDescription}}"
   )
-  public static TrainingExample getTrainingExample(String versionDate, String username, String password,
-                                                   String endPoint, Map<String, String> headers,
-                                                   GetTrainingExampleOptions options) {
+  public static TrainingExample getTrainingExample(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      GetTrainingExampleOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -525,9 +601,10 @@ public final class DiscoveryOperations {
       name = "{{listTrainingDataName}}",
       description = "{{listTrainingDataDescription}}"
   )
-  public static TrainingDataSet listTrainingData(String versionDate, String username, String password,
-                                                 String endPoint, Map<String, String> headers,
-                                                 ListTrainingDataOptions options) {
+  public static TrainingDataSet listTrainingData(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListTrainingDataOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -540,9 +617,10 @@ public final class DiscoveryOperations {
       name = "{{listTrainingExamplesName}}",
       description = "{{listTrainingExamplesDescription}}"
   )
-  public static TrainingExampleList listTrainingExamples(String versionDate, String username, String password,
-                                                         String endPoint, Map<String, String> headers,
-                                                         ListTrainingExamplesOptions options) {
+  public static TrainingExampleList listTrainingExamples(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      ListTrainingExamplesOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
@@ -555,9 +633,10 @@ public final class DiscoveryOperations {
       name = "{{updateTrainingExampleName}}",
       description = "{{updateTrainingExampleDescription}}"
   )
-  public static TrainingExample updateTrainingExample(String versionDate, String username, String password,
-                                                      String endPoint, Map<String, String> headers,
-                                                      UpdateTrainingExampleOptions options) {
+  public static TrainingExample updateTrainingExample(String versionDate, String username,
+      String password,
+      String endPoint, Map<String, String> headers,
+      UpdateTrainingExampleOptions options) {
     Discovery service = new Discovery(versionDate);
     service.setUsernameAndPassword(username, password);
     service.setEndPoint(endPoint);
