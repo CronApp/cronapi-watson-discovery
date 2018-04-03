@@ -6,13 +6,10 @@ import cronapi.CronapiMetaData;
 
 import java.util.Map;
 
-@CronapiMetaData(categoryName = "Watson Discovery", categoryTags = {"Watson", "Discovery"})
+@CronapiMetaData
 public final class DiscoveryOperations {
 
-  @CronapiMetaData(
-      name = "{{createEnvironmentName}}",
-      description = "{{createEnvironmentDescription}}"
-  )
+  @CronapiMetaData
   public static Environment createEnvironment(String versionDate, String username, String password, String endPoint,
                                               Map<String, String> headers, CreateEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -23,10 +20,7 @@ public final class DiscoveryOperations {
     return service.createEnvironment(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteEnvironmentName}}",
-      description = "{{deleteEnvironmentDescription}}"
-  )
+  @CronapiMetaData
   public static void deleteEnvironment(String versionDate, String username, String password, String endPoint,
                                        Map<String, String> headers, DeleteEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -37,10 +31,7 @@ public final class DiscoveryOperations {
     service.deleteEnvironment(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getEnvironmentName}}",
-      description = "{{getEnvironmentDescription}}"
-  )
+  @CronapiMetaData
   public static Environment getEnvironment(String versionDate, String username, String password, String endPoint,
                                            Map<String, String> headers, GetEnvironmentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -51,10 +42,7 @@ public final class DiscoveryOperations {
     return service.getEnvironment(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listEnvironmentsName}}",
-      description = "{{listEnvironmentsDescription}}"
-  )
+  @CronapiMetaData
   public static ListEnvironmentsResponse listEnvironments(String versionDate, String username, String password,
                                                           String endPoint, Map<String, String> headers,
                                                           ListEnvironmentsOptions options) {
@@ -66,10 +54,7 @@ public final class DiscoveryOperations {
     return service.listEnvironments(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listFieldsName}}",
-      description = "{{listFieldsDescription}}"
-  )
+  @CronapiMetaData
   public static ListCollectionFieldsResponse listFields(String versionDate, String username, String password,
                                                         String endPoint, Map<String, String> headers,
                                                         ListFieldsOptions options) {
@@ -81,10 +66,7 @@ public final class DiscoveryOperations {
     return service.listFields(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{updateEnvironmentName}}",
-      description = "{{updateEnvironmentDescription}}"
-  )
+  @CronapiMetaData
   public static Environment updateEnvironment(String versionDate, String username, String password,
                                               String endPoint, Map<String, String> headers,
                                               UpdateEnvironmentOptions options) {
@@ -96,10 +78,7 @@ public final class DiscoveryOperations {
     return service.updateEnvironment(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{createConfigurationName}}",
-      description = "{{createConfigurationDescription}}"
-  )
+  @CronapiMetaData
   public static Configuration createConfiguration(String versionDate, String username, String password,
                                                   String endPoint, Map<String, String> headers,
                                                   CreateConfigurationOptions options) {
@@ -111,10 +90,7 @@ public final class DiscoveryOperations {
     return service.createConfiguration(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteConfigurationName}}",
-      description = "{{deleteConfigurationDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteConfiguration(String versionDate, String username, String password,
                                          String endPoint, Map<String, String> headers, DeleteConfigurationOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -125,10 +101,7 @@ public final class DiscoveryOperations {
     return service.deleteConfiguration(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getConfigurationName}}",
-      description = "{{getConfigurationDescription}}"
-  )
+  @CronapiMetaData
   public static Configuration getConfiguration(String versionDate, String username, String password,
                                                String endPoint, Map<String, String> headers,
                                                GetConfigurationOptions options) {
@@ -140,10 +113,7 @@ public final class DiscoveryOperations {
     return service.getConfiguration(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listConfigurationsName}}",
-      description = "{{listConfigurationsDescription}}"
-  )
+  @CronapiMetaData
   public static ListConfigurationsResponse listConfigurations(String versionDate, String username, String password,
                                                               String endPoint, Map<String, String> headers,
                                                               ListConfigurationsOptions options) {
@@ -155,10 +125,7 @@ public final class DiscoveryOperations {
     return service.listConfigurations(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{updateConfigurationName}}",
-      description = "{{updateConfigurationDescription}}"
-  )
+  @CronapiMetaData
   public static Configuration updateConfiguration(String versionDate, String username, String password,
                                                   String endPoint, Map<String, String> headers,
                                                   UpdateConfigurationOptions options) {
@@ -170,10 +137,7 @@ public final class DiscoveryOperations {
     return service.updateConfiguration(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{testConfigurationInEnvironmentName}}",
-      description = "{{testConfigurationInEnvironmentDescription}}"
-  )
+  @CronapiMetaData
   public static TestDocument testConfigurationInEnvironment(String versionDate, String username, String password,
                                                             String endPoint, Map<String, String> headers,
                                                             TestConfigurationInEnvironmentOptions options) {
@@ -185,10 +149,7 @@ public final class DiscoveryOperations {
     return service.testConfigurationInEnvironment(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{createCollectionName}}",
-      description = "{{createCollectionDescription}}"
-  )
+  @CronapiMetaData
   public static Collection createCollection(String versionDate, String username, String password,
                                             String endPoint, Map<String, String> headers,
                                             CreateCollectionOptions options) {
@@ -200,10 +161,7 @@ public final class DiscoveryOperations {
     return service.createCollection(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteCollectionName}}",
-      description = "{{deleteCollectionDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteCollection(String versionDate, String username, String password,
                                       String endPoint, Map<String, String> headers, DeleteCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -214,10 +172,7 @@ public final class DiscoveryOperations {
     return service.deleteCollection(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getCollectionName}}",
-      description = "{{getCollectionDescription}}"
-  )
+  @CronapiMetaData
   public static Collection getCollection(String versionDate, String username, String password,
                                          String endPoint, Map<String, String> headers, GetCollectionOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -228,10 +183,7 @@ public final class DiscoveryOperations {
     return service.getCollection(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listCollectionFieldsName}}",
-      description = "{{listCollectionFieldsDescription}}"
-  )
+  @CronapiMetaData
   public static ListCollectionFieldsResponse listCollectionFields(String versionDate, String username, String password,
                                                                   String endPoint, Map<String, String> headers,
                                                                   ListCollectionFieldsOptions options) {
@@ -243,10 +195,7 @@ public final class DiscoveryOperations {
     return service.listCollectionFields(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listCollectionsFieldsName}}",
-      description = "{{listCollectionsFieldsDescription}}"
-  )
+  @CronapiMetaData
   public static ListCollectionsResponse listCollections(String versionDate, String username, String password,
                                                         String endPoint, Map<String, String> headers,
                                                         ListCollectionsOptions options) {
@@ -258,10 +207,7 @@ public final class DiscoveryOperations {
     return service.listCollections(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{updateCollectionName}}",
-      description = "{{updateCollectionDescription}}"
-  )
+  @CronapiMetaData
   public static Collection updateCollection(String versionDate, String username, String password,
                                             String endPoint, Map<String, String> headers,
                                             UpdateCollectionOptions options) {
@@ -273,10 +219,7 @@ public final class DiscoveryOperations {
     return service.updateCollection(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{addDocumentName}}",
-      description = "{{addDocumentDescription}}"
-  )
+  @CronapiMetaData
   public static DocumentAccepted addDocument(String versionDate, String username, String password, String endPoint,
                                              Map<String, String> headers, AddDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -287,10 +230,7 @@ public final class DiscoveryOperations {
     return service.addDocument(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteDocumentName}}",
-      description = "{{deleteDocumentDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteDocument(String versionDate, String username, String password, String endPoint,
                                     Map<String, String> headers, DeleteDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -301,10 +241,7 @@ public final class DiscoveryOperations {
     return service.deleteDocument(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getDocumentStatusName}}",
-      description = "{{getDocumentStatusDescription}}"
-  )
+  @CronapiMetaData
   public static DocumentStatus getDocumentStatus(String versionDate, String username, String password, String endPoint,
                                                  Map<String, String> headers, GetDocumentStatusOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -315,10 +252,7 @@ public final class DiscoveryOperations {
     return service.getDocumentStatus(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{updateDocumentName}}",
-      description = "{{updateDocumentDescription}}"
-  )
+  @CronapiMetaData
   public static DocumentAccepted updateDocument(String versionDate, String username, String password, String endPoint,
                                                 Map<String, String> headers, UpdateDocumentOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -329,10 +263,7 @@ public final class DiscoveryOperations {
     return service.updateDocument(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{federatedQueryName}}",
-      description = "{{federatedQueryDescription}}"
-  )
+  @CronapiMetaData
   public static QueryResponse federatedQuery(String versionDate, String username, String password, String endPoint,
                                              Map<String, String> headers, FederatedQueryOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -342,10 +273,7 @@ public final class DiscoveryOperations {
     return service.federatedQuery(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{federatedQueryNoticesName}}",
-      description = "{{federatedQueryNoticesDescription}}"
-  )
+  @CronapiMetaData
   public static QueryNoticesResponse federatedQueryNotices(String versionDate, String username, String password,
                                                            String endPoint, Map<String, String> headers,
                                                            FederatedQueryNoticesOptions options) {
@@ -357,10 +285,7 @@ public final class DiscoveryOperations {
     return service.federatedQueryNotices(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{queryNoticesName}}",
-      description = "{{queryDescription}}"
-  )
+  @CronapiMetaData
   public static QueryResponse query(String versionDate, String username, String password,
                                     String endPoint, Map<String, String> headers, QueryOptions options) {
     Discovery service = new Discovery(versionDate);
@@ -371,10 +296,7 @@ public final class DiscoveryOperations {
     return service.query(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{queryEntitiesName}}",
-      description = "{{queryEntitiesDescription}}"
-  )
+  @CronapiMetaData
   public static QueryEntitiesResponse queryEntities(String versionDate, String username, String password,
                                                     String endPoint, Map<String, String> headers,
                                                     QueryEntitiesOptions options) {
@@ -386,10 +308,7 @@ public final class DiscoveryOperations {
     return service.queryEntities(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{queryNoticesName}}",
-      description = "{{queryNoticesDescription}}"
-  )
+  @CronapiMetaData
   public static QueryNoticesResponse queryNotices(String versionDate, String username, String password,
                                                   String endPoint, Map<String, String> headers,
                                                   QueryNoticesOptions options) {
@@ -401,10 +320,7 @@ public final class DiscoveryOperations {
     return service.queryNotices(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{queryRelationsName}}",
-      description = "{{queryRelationsDescription}}"
-  )
+  @CronapiMetaData
   public static QueryRelationsResponse queryRelations(String versionDate, String username, String password,
                                                       String endPoint, Map<String, String> headers,
                                                       QueryRelationsOptions options) {
@@ -416,10 +332,7 @@ public final class DiscoveryOperations {
     return service.queryRelations(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{addTrainingDataName}}",
-      description = "{{addTrainingDataDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingQuery addTrainingData(String versionDate, String username, String password,
                                               String endPoint, Map<String, String> headers,
                                               AddTrainingDataOptions options) {
@@ -431,10 +344,7 @@ public final class DiscoveryOperations {
     return service.addTrainingData(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{createTrainingExampleName}}",
-      description = "{{createTrainingExampleDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingExample createTrainingExample(String versionDate, String username, String password,
                                                       String endPoint, Map<String, String> headers,
                                                       CreateTrainingExampleOptions options) {
@@ -446,10 +356,7 @@ public final class DiscoveryOperations {
     return service.createTrainingExample(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteAllTrainingDataName}}",
-      description = "{{deleteAllTrainingDataDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteAllTrainingData(String versionDate, String username, String password,
                                            String endPoint, Map<String, String> headers,
                                            DeleteAllTrainingDataOptions options) {
@@ -461,10 +368,7 @@ public final class DiscoveryOperations {
     return service.deleteAllTrainingData(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteTrainingDataName}}",
-      description = "{{deleteTrainingDataDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteTrainingData(String versionDate, String username, String password,
                                         String endPoint, Map<String, String> headers,
                                         DeleteTrainingDataOptions options) {
@@ -476,10 +380,7 @@ public final class DiscoveryOperations {
     return service.deleteTrainingData(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{deleteTrainingExampleName}}",
-      description = "{{deleteTrainingExampleDescription}}"
-  )
+  @CronapiMetaData
   public static Void deleteTrainingExample(String versionDate, String username, String password,
                                            String endPoint, Map<String, String> headers,
                                            DeleteTrainingExampleOptions options) {
@@ -491,10 +392,7 @@ public final class DiscoveryOperations {
     return service.deleteTrainingExample(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getTrainingDataName}}",
-      description = "{{getTrainingDataDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingQuery getTrainingData(String versionDate, String username, String password,
                                               String endPoint, Map<String, String> headers,
                                               GetTrainingDataOptions options) {
@@ -506,10 +404,7 @@ public final class DiscoveryOperations {
     return service.getTrainingData(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{getTrainingExampleName}}",
-      description = "{{getTrainingExampleDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingExample getTrainingExample(String versionDate, String username, String password,
                                                    String endPoint, Map<String, String> headers,
                                                    GetTrainingExampleOptions options) {
@@ -521,10 +416,7 @@ public final class DiscoveryOperations {
     return service.getTrainingExample(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listTrainingDataName}}",
-      description = "{{listTrainingDataDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingDataSet listTrainingData(String versionDate, String username, String password,
                                                  String endPoint, Map<String, String> headers,
                                                  ListTrainingDataOptions options) {
@@ -536,10 +428,7 @@ public final class DiscoveryOperations {
     return service.listTrainingData(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{listTrainingExamplesName}}",
-      description = "{{listTrainingExamplesDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingExampleList listTrainingExamples(String versionDate, String username, String password,
                                                          String endPoint, Map<String, String> headers,
                                                          ListTrainingExamplesOptions options) {
@@ -551,10 +440,7 @@ public final class DiscoveryOperations {
     return service.listTrainingExamples(options).execute();
   }
 
-  @CronapiMetaData(
-      name = "{{updateTrainingExampleName}}",
-      description = "{{updateTrainingExampleDescription}}"
-  )
+  @CronapiMetaData
   public static TrainingExample updateTrainingExample(String versionDate, String username, String password,
                                                       String endPoint, Map<String, String> headers,
                                                       UpdateTrainingExampleOptions options) {
